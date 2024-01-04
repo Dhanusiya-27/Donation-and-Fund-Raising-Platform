@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+ import './App.css';
+import {BrowserRouter as Router,Routes,Route, Link} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Home from './Components/Home';
 
-export default App;
+import DrawerAppBar from './Components/Navbar';
+import LoginPage from './Components/Login';
+import Signup from './Components/Sign';
+
+
+
+
+ const App = () => {
+return (
+<div className="app">
+
+      <Router> 
+           {/* <nav className='navi'>
+              <ul className='Hello'>
+                <li className='active'>
+           <Link  style={{ textDecoration: 'none' ,color:'white'}}to="/">HOME</Link>
+           </li>
+            <li className='actives'>
+              <Link  style={{textDecoration: 'none ', color:'white'}}to="/Login" >LOGIN</Link>
+               </li>
+            <li className='activess'>
+              <Link  style={{ textDecoration: 'none',color:'white'}}to="/Register">REGISTER</Link>
+              </li>
+              </ul>
+              </nav> */}
+               <Routes>
+                  <Route exact path="/" element={<Home/>}/>
+
+                    <Route exact path="/Login" element={<LoginPage/>} />
+                    <Route path="/Sign" element={ <Signup/>} />
+                  
+                     </Routes>
+            </Router> 
+                     
+            
+              
+         </div>
+    )
+   }
+ export default App;
